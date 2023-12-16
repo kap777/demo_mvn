@@ -57,7 +57,7 @@ public class BookController {
     }
 
     @GetMapping(path = "/books") // query parameters: ?size=5&page=0
-    public Page<BookDto> listBooks(@PageableDefault(value = 5) Pageable pageable) {
+    public Page<BookDto> listBooks(@PageableDefault(value = 10) Pageable pageable) {
         Page<BookEntity> books = bookService.findAll(pageable);
         return books.map(bookMapper::mapTo);
 //        return books.stream()
