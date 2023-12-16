@@ -4,9 +4,6 @@ spring:
     username: ${PROD_DB_USERNAME}
     password: ${PROD_DB_PASSWORD}
     name: spring-blog
-  jpa:
-    hibernate:
-      ddl-auto: create
 
   sql:
     init:
