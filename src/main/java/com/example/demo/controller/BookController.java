@@ -16,6 +16,7 @@ import java.util.Optional;
 
 @AllArgsConstructor
 @RestController
+//@RequestMapping("/api")
 public class BookController {
 
     private Mapper<BookEntity, BookDto> bookMapper;

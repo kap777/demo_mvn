@@ -9,4 +9,6 @@ spring:
     init:
       mode: always # won't do this in prod
 
-      
+server:
+  servlet:
+    contextPath: "/api"
