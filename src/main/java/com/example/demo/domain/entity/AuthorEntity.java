@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Entity
 @Table(name = "authors")
+//@JsonIgnoreProperties(ignoreUnknown = true)
 public class AuthorEntity {
 
     @Id
@@ -20,6 +21,7 @@ public class AuthorEntity {
 
     private String name;
 
+//    @JsonProperty("authorAge") // should be "authorAge" in JSON
     private Integer age;
 
 }

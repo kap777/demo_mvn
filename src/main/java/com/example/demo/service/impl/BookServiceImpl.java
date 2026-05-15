@@ -32,7 +32,8 @@ public class BookServiceImpl implements BookService {
         return StreamSupport
                 .stream(
                         bookRepository.findAll().spliterator(),
-                        false)
+                        false
+                )
                 .collect(Collectors.toList());
     }
 
