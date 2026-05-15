@@ -1,5 +1,6 @@
 package com.example.demo.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,7 +22,7 @@ public class AuthorEntity {
 
     private String name;
 
-//    @JsonProperty("authorAge") // should be "authorAge" in JSON
+    @JsonProperty("authorAge") // should be "authorAge" in JSON
     private Integer age;
 
 }
