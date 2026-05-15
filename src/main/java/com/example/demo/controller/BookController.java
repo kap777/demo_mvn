@@ -21,7 +21,7 @@ import java.util.Optional;
 
 @AllArgsConstructor
 @RestController
-//@RequestMapping("/api")
+@RequestMapping("/api")
 public class BookController {
 
     private static final Logger log = LoggerFactory.getLogger(BookController.class);
