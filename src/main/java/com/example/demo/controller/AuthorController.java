@@ -47,6 +47,29 @@ public class AuthorController {
             .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    @GetMapping(path = "/authors/add")
+    public ResponseEntity<AuthorDto> getAuthor(
+            @RequestParam(required = false) Boolean post,
+            @RequestParam(required = false) Integer age,
+            @RequestParam(required = false) String name
+    ) {
+        AuthorDto newAuthorDto = new AuthorDto(null, name, age);
+
+        if (post == true && (name != null || age != null)) {
+            final AuthorEntity authorEntity = authorMapper.mapFrom(newAuthorDto);
+            final AuthorEntity savedAuthorEntity = authorService.save(authorEntity);
+
+            if (savedAuthorEntity != null) {
+                return new ResponseEntity<>(
+                        authorMapper.mapTo(savedAuthorEntity),
+                        HttpStatus.OK
+                );
+            }
+        }
+
+        return new ResponseEntity<>(newAuthorDto, HttpStatus.BAD_REQUEST);
+    }
+
     @PutMapping(path = "/authors/{id}")
     public ResponseEntity<AuthorDto> fullUpdateAuthor(
             @PathVariable Long id,
