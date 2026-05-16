@@ -12,4 +12,6 @@ public interface AuthorRepository extends CrudRepository<AuthorEntity, Long> {
 //
 //    @Query("SELECT a from AuthorEntity a where a.age > ?1")
 //    Iterable<AuthorEntity> findAuthorsWithAgeGreaterThan(int age);
+
+//    List<AuthorEntity> findByNameContainingIgnoreCase(String name); // ?extends JpaRepository<AuthorEntity, Long>
 }
