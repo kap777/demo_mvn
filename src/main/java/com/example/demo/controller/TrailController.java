@@ -4,6 +4,7 @@ import com.example.demo.domain.dto.TrailDto;
 import com.example.demo.domain.entity.TrailEntity;
 import com.example.demo.mapper.Mapper;
 import com.example.demo.service.TrailService;
+import com.example.demo.util.Util;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -38,7 +39,7 @@ public class TrailController {
     }
 
     @GetMapping(path = "/trails/add")
-    public ResponseEntity<TrailDto> getAuthor(
+    public ResponseEntity<?> getAuthor(
             @RequestParam(required = false) Boolean post,
             @RequestParam(required = false) String name,
             @RequestParam(required = false) String place,
@@ -46,7 +47,7 @@ public class TrailController {
     ) {
         TrailDto newTrailDto = new TrailDto(null, name, place, date);
 
-        if (Boolean.TRUE == post && place != null && !place.isBlank() && date != null && !date.isBlank()) {
+        if (Boolean.TRUE == post && Util.notNullOrBlank(place) && Util.notNullOrBlank(date)) {
             final TrailEntity trailEntity = trailMapper.mapFrom(newTrailDto);
             final TrailEntity savedTrailEntity = trailService.create(trailEntity);
 
@@ -58,7 +59,7 @@ public class TrailController {
             }
         }
 
-        return new ResponseEntity<>(newTrailDto, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>("Bad request. Trail hasn't been saved to DB", HttpStatus.BAD_REQUEST);
     }
 
 }
