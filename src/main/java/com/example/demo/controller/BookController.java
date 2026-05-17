@@ -24,12 +24,12 @@ import java.util.Optional;
 @RequestMapping("/api")
 public class BookController {
 
-    private static final Logger log = LoggerFactory.getLogger(BookController.class);
-
     private Mapper<BookEntity, BookDto> bookMapper;
 
     private BookService bookService;
     private AuthorService authorService;
+
+    private static final Logger log = LoggerFactory.getLogger(BookController.class);
 
     @PutMapping("/books/{isbn}")
     public ResponseEntity<BookDto> createUpdateBook(
