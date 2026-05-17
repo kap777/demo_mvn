@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.domain.ErrorResponse;
 import com.example.demo.domain.dto.TrailDto;
 import com.example.demo.domain.entity.TrailEntity;
 import com.example.demo.mapper.Mapper;
@@ -59,7 +60,11 @@ public class TrailController {
             }
         }
 
-        return new ResponseEntity<>("Bad request. Trail hasn't been saved to DB", HttpStatus.BAD_REQUEST);
+        return ResponseEntity
+                .badRequest()
+                .body(new ErrorResponse("Bad request. Trail hasn't been saved to DB"));
+
+//        return new ResponseEntity<>("Bad request. Trail hasn't been saved to DB", HttpStatus.BAD_REQUEST);
     }
 
 }
