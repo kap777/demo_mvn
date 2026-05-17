@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/api")
+//@RequestMapping("/api")
 public class TrailController {
 
     private Mapper<TrailEntity, TrailDto> trailMapper;

@@ -11,3 +11,8 @@ spring:
   sql:
     init:
       mode: always # won't do this in prod
+
+server:
+  port: 8080
+  servlet:
+    contextPath: "/api"

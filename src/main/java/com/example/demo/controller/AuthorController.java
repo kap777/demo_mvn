@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/api")
+//@RequestMapping("/api")
 public class AuthorController {
 
     private AuthorService authorService;
