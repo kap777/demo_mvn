@@ -17,6 +17,11 @@ public class TrailEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "trail_id_seq")
+    @SequenceGenerator(
+            name = "trail_id_seq",
+            sequenceName = "trail_id_name",
+            allocationSize = 1
+    )
     private Long id;
 
     private String name;

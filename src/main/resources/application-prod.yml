@@ -13,6 +13,6 @@ spring:
       mode: always # won't do this in prod
 
 server:
-  port: 8080
+#  port: 8080 # heroku сама задёт порт, на эту строку не смотрит
   servlet:
     contextPath: "/api"
