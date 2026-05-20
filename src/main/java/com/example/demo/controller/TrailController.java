@@ -44,11 +44,15 @@ public class TrailController {
             @RequestParam(required = false) Boolean post,
             @RequestParam(required = false) String name,
             @RequestParam(required = false) String place,
-            @RequestParam(required = false) String date
+            @RequestParam(required = false) String date,
+            @RequestParam(required = false) Double originLat,
+            @RequestParam(required = false) Double originLng,
+            @RequestParam(required = false) Double destinLat,
+            @RequestParam(required = false) Double destinLng
     ) {
-        TrailDto newTrailDto = new TrailDto(null, name, place, date);
+        TrailDto newTrailDto = new TrailDto(null, name, place, date, null, null, originLat, originLng, destinLat, destinLng);
 
-        if (Boolean.TRUE == post && Util.notNullOrBlank(place) && Util.notNullOrBlank(date)) {
+        if (Boolean.TRUE.equals(post) && Util.notNullOrBlank(place) && Util.notNullOrBlank(date)) {
             final TrailEntity trailEntity = trailMapper.mapFrom(newTrailDto);
             final TrailEntity savedTrailEntity = trailService.create(trailEntity);
 

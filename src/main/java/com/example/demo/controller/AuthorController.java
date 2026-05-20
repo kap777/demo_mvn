@@ -55,7 +55,7 @@ public class AuthorController {
     ) {
         AuthorDto newAuthorDto = new AuthorDto(null, name, age);
 
-        if (Boolean.TRUE == post && (name != null || age != null)) {
+        if (Boolean.TRUE.equals(post) && (name != null || age != null)) {
             final AuthorEntity authorEntity = authorMapper.mapFrom(newAuthorDto);
             final AuthorEntity savedAuthorEntity = authorService.save(authorEntity);
 
